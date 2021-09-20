@@ -1,0 +1,201 @@
+body.menu-opened {
+  overflow: hidden
+}
+.header__wrapper {
+    position: relative;
+}
+.menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--fourth-brand-color);
+    z-index: 99;
+    padding: 7rem 0 5rem 5rem;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+.menu.active {
+    opacity: 1;
+    pointer-events: initial;
+    visibility: visible;
+}
+.header {
+    padding: 1.5rem 0;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo__link {
+    font-family: var(--title-font);
+    font-size: 3rem;
+    display: block;
+    /* color: var(--main-text-color); */
+}
+/* BUTTON START */
+
+.buttons {
+    display: block;
+  border-radius: 4rem;
+}
+.buy-buttons .blob-btn {
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+.buy-buttons .blob-btn:hover {
+  color: #fff;
+}
+.blob-btn {
+  z-index: 1;
+  position: relative;
+  padding: 2rem 4.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--main-text-color);
+  font-size: 1.6rem;
+  font-family: var(--title-font);
+  background-color: transparent;
+  outline: none;
+  border: none;
+  transition: color 0.5s;
+  cursor: pointer;
+  border-radius: 3rem;
+  display: inline-block;
+}
+.blob-btn:before {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: .5rem solid var(--main-text-color);
+  border-radius: 3rem;
+}
+.blob-btn:after {
+  content: "";
+  z-index: -2;
+  position: absolute;
+  left: .3rem;
+  top: .3rem;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s 0.2s;
+  border-radius: 3rem;
+}
+.blob-btn:hover {
+  color: var(--first-brand-color);
+  border-radius: 3rem;
+}
+.blob-btn:hover:after {
+  transition: all 0.3s;
+  left: 0;
+  top: 0;
+  border-radius: 3rem;
+}
+.blob-btn__inner {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 3rem;
+  background: transparent;
+  pointer-events: none;
+}
+.blob-btn__blobs {
+  position: relative;
+  display: block;
+  height: 100%;
+  filter: url("#goo");
+}
+.blob-btn__blob {
+  position: absolute;
+  top: .2rem;
+  width: 25%;
+  height: 100%;
+  background: var(--main-text-color);
+  border-radius: 100%;
+  transform: translate3d(0, 150%, 0) scale(1.7);
+  transition: transform 0.45s;
+}
+@supports (filter: url("#goo")) {
+  .blob-btn__blob {
+    transform: translate3d(0, 150%, 0) scale(1.4);
+  }
+}
+.blob-btn__blob:nth-child(1) {
+  left: 0%;
+  transition-delay: 0s;
+}
+.blob-btn__blob:nth-child(2) {
+  left: 30%;
+  transition-delay: 0.08s;
+}
+.blob-btn__blob:nth-child(3) {
+  left: 60%;
+  transition-delay: 0.16s;
+}
+.blob-btn__blob:nth-child(4) {
+  left: 90%;
+  transition-delay: 0.24s;
+}
+.blob-btn:hover .blob-btn__blob {
+  transform: translateZ(0) scale(1.7);
+}
+@supports (filter: url("#goo")) {
+  .blob-btn:hover .blob-btn__blob {
+    transform: translateZ(0) scale(1.4);
+  }
+}
+
+/* BURGER BUTTO START */
+
+.burger-btn {
+    border: none;
+    background-color: transparent;
+    width: 3.5rem;
+    height: 3.5rem;
+    position: relative;
+    z-index: 100;
+}
+.burger-btn span {
+    background: #000;
+    width: 100%;
+    height: .5rem;
+    position: absolute;
+    left: 0;
+    transition: all .3s ease-in-out;
+}
+.burger-btn span:first-child {
+   top: 1rem;
+}
+.burger-btn span:last-child {
+    top: 2rem;
+}
+
+.burger-btn.active span:first-child {
+   transform: rotate(45deg);
+   top: 1.2rem;
+   background-color: var(--first-brand-color);
+}
+.burger-btn.active span:last-child {
+    transform: rotate(-45deg);
+   top: 1.2rem;
+   background-color: var(--first-brand-color);
+}
+.menu__item:not(:last-child) {
+    margin-bottom: 1rem;
+}
+.menu__link {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    color: var(--first-brand-color);
+}
